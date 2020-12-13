@@ -6,17 +6,17 @@
  Software https://img.shields.io/static/v1?label=<LABEL>&message=<100%>&color=<BRIGHTGREEN>	
 
 # Visuals
-![Arduino controlled car image](arduino-car.jpg)	
-![Arduino controlled car gif](arduino-car.gif)
+![Arduino controlled car image](arduino-car.jpg | width=100)	
+![Arduino controlled car gif](arduino-car-2.gif | width=100)
 
 # Libraries, hardware, etc.
 Here is a list of some of the code libraries that I used:
 
-* [Servo.h] (https://www.arduino.cc/reference/en/libraries/servo/)
+* [Servo.h](https://www.arduino.cc/reference/en/libraries/servo/)
 
 The hardware:
 
-* [The full kit] (https://www.ebay.co.uk/itm/Smart-Car-Smart-Robot-Car-Chassis-Kit-Tracking-Motor-2WD-Ultrasonic-Arduino-MCU/274068571943?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2057872.m2749.l2649)
+* [The full kit](https://www.ebay.co.uk/itm/Smart-Car-Smart-Robot-Car-Chassis-Kit-Tracking-Motor-2WD-Ultrasonic-Arduino-MCU/274068571943?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2057872.m2749.l2649)
 
 	**That includes:**
 	1. 2 x DC Motors
