@@ -2,8 +2,8 @@
  Using a pre-built [Arduino kit](https://www.ebay.co.uk/itm/Smart-Car-Smart-Robot-Car-Chassis-Kit-Tracking-Motor-2WD-Ultrasonic-Arduino-MCU/274068571943?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2057872.m2749.l2649d) I connected the parts (including some additionaly bought) and wrote C++ code using the Arduino IDE to move the car whilst avoiding any objects in its path.
 
 # Current state
- Hardware https://img.shields.io/staticv1?label=<LABEL>&message=<95%>&color=<GREEN>
- Software https://img.shields.io/static/v1?label=<LABEL>&message=<100%>&color=<BRIGHTGREEN>	
+![Hardware 95%](https://img.shields.io/badge/HARDWARE-95-<COLOR>.svg) </br>
+![Code 100%](https://img.shields.io/badge/CODE-100-<COLOR>.svg)
 
 # Visuals
 ![Arduino controlled car image](arduino-car.jpg)
