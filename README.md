@@ -6,8 +6,8 @@
  Software https://img.shields.io/static/v1?label=<LABEL>&message=<100%>&color=<BRIGHTGREEN>	
 
 # Visuals
-![Arduino controlled car image](arduino-car.jpg | width=100)	
-![Arduino controlled car gif](arduino-car-2.gif | width=100)
+![Arduino controlled car image](arduino-car.jpg) {:width="50%"}	
+![Arduino controlled car gif](arduino-car-2.gif) {:width="50%"}
 
 # Libraries, hardware, etc.
 Here is a list of some of the code libraries that I used:
