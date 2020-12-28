@@ -1,9 +1,8 @@
 #include <Servo.h>
 Servo sensor;
 
-float distancefront;
-long duration, distance, cm;
-long randNumber;
+long duration, distanceAhead;
+long newDistanceRight, newDistanceLeft, newDistanceAhead;
 
 //Ultrasonic Module pins
 const int trigPin = 13; // 10 microsecond high pulse causes chirp , wait 50 us??
@@ -81,87 +80,70 @@ void turnRight(){
   analogWrite(enBPin, 160);
 }
 
-long checkDistance(){
+long checkDistanceAhead(){
   digitalWrite(trigPin, HIGH);
   digitalWrite(trigPin, LOW);
 
   duration = pulseIn(echoPin, HIGH);
-  distance = duration / 58;
+  distanceAhead = duration / 58;
 
-  Serial.println(distance);
+//  Serial.print("distanceAhead: ");
+//  Serial.println(distanceAhead);
 
-  return distance;
+  return distanceAhead;
 }
 
 int lookRight(){
   sensor.attach(servoPin);
   sensor.write(30); //rotate right
   delay(500);
-  int distance = sensor.read();
+  int distanceRight = checkDistanceAhead();
   delay(100);
   sensor.write(105);  //look forward
-  return distance;
+
+//  Serial.print("distanceRight: ");
+//  Serial.println(distanceRight);
+  
+  return distanceRight;
 }
 
 int lookLeft(){
   sensor.attach(servoPin);
   sensor.write(180); //rotate left
   delay(500);
-  int distance = sensor.read();
+  int distanceLeft = checkDistanceAhead();
   delay(100);
   sensor.write(105);  //look forward
-  return distance;
-}
-
-long lookAround(){
-  sensor.attach(servoPin);
-  sensor.write(105); 
   
-  do{
-    sensor.write(sensor.read()-2);
-    distance = checkDistance();
-  } while (sensor.read()>60);
-
-  do{
-    sensor.write(sensor.read()+2);
-    distance = checkDistance();
-  } while (sensor.read()<150);
-  
-  return distance;
+  return distanceLeft;
 }
 
 void setup () {
   Serial.begin(9600);
   defineOutputOrInput();
-  checkDistance();
-
-//  turnLeft();
-//  turnRight();
 }
 
 void loop () {
-  int distanceR = 0;
-  int distanceL =  0;
-  delay(40);
   
   goStraight();
-  checkDistance();
 
-  if(distance<=25){
+  newDistanceAhead = checkDistanceAhead(); //output is var distanceAhead, gets written in newDistanceAhead
+
+  if(newDistanceAhead<=25){
     stopMoving();
     delay(100);
-    distanceR = lookRight();
+    newDistanceRight = lookRight(); //distanceRight gets written in newDistanceRight
+    delay(200); 
+    newDistanceLeft = lookLeft(); //distanceLeft gets written in newDistanceLeft
     delay(200);
-    distanceL = lookLeft();
-    delay(200);
-
-    if(distanceR>=distanceL){
-      turnRight();
-      delay(1000);
+    
+    if(newDistanceRight>=newDistanceLeft){
+      turnRight();  
+      delay(500);
       stopMoving();
     }else{
       turnLeft();
-      delay(1000);
+      delay(500);
       stopMoving();
     }
     
@@ -169,5 +151,5 @@ void loop () {
     goStraight(); 
   }
 
-  distance = sensor.read();
+  distanceAhead = sensor.read();
 }
