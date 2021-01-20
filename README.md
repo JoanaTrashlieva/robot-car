@@ -9,6 +9,9 @@
 ![Arduino controlled car image](arduino-car.jpg)
 ![Arduino controlled car gif](arduino-car-2.gif)
 
+# Connection diagram
+![Components connection diagram](Ardi.png)
+
 # Libraries, hardware, etc.
 Here is a list of some of the code libraries that I used:
 
